@@ -16,7 +16,6 @@ const Post = () => {
         };
         fetchData();
     }, []);
-    console.log(data)
   return (
       <div>
           {data.length > 0 && data.map((data) => (
