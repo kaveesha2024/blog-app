@@ -18,6 +18,7 @@ const Post = () => {
         style={{
           color: "rgba(0,0,0,0.3)",
           fontStyle: "italic",
+            marginBottom: "2%",
         }}
       >
         Date: 2025/03/25
@@ -26,15 +27,17 @@ const Post = () => {
         <img
           style={{
             width: "600px",
+              marginBottom: "2%",
           }}
           src={testImage}
-          alt="image"
+          alt="Image Not Found"
         />
       </div>
 
       <p
         style={{
           textAlign: "justify",
+            marginBottom: "2%",
         }}
       >
         It is a long established fact that a reader will be distracted by the

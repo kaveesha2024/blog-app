@@ -1,3 +1,4 @@
+@import "tailwindcss";
 body {
     /*background: #312e2e;*/
     font-family: "Poppins", sans-serif;
@@ -37,7 +38,7 @@ body {
     }
 }
 header {
-    padding: 0 5%;
+    padding: 2% 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
