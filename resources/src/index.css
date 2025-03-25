@@ -1,14 +1,14 @@
 body {
     /*background: #312e2e;*/
     font-family: "Poppins", sans-serif;
+    background: aliceblue;
 }
 .container {
     border: #0082ff 3px solid;
     width: 50%;
+    margin: 100px auto;
     border-radius: 10px;
     padding: 20px;
-    margin: auto;
-    margin-top: 30%;
     display: flex;
     align-items: center;
     justify-content: center;

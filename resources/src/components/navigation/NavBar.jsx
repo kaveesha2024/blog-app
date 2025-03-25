@@ -11,7 +11,7 @@ const NavBar = () => {
                     <Link to="">About</Link>
                     <Link to="">Services</Link>
                     <Link to="">Contacts</Link>
-                    <button onClick={() => {navigation("/createPost")}} className="createPostBtn">Add Post</button>
+                    <button onClick={() => {navigation("/create-post")}} className="createPostBtn">Add Post</button>
                 </nav>
             </header>
         </div>
