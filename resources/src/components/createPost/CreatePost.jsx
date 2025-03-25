@@ -1,31 +1,37 @@
-import backBtn from '../../../public/back.png';
-import {useNavigate} from "react-router";
-import {useState} from "react";
+import backBtn from "../../../public/back.png";
+import { useNavigate } from "react-router";
+import { useState } from "react";
 const CreatePost = () => {
-const navigation = useNavigate()
-    const [inputData, setInputData] = useState({
-        name: '',
-        topic: '',
-        content: '',
-    });
+  const navigation = useNavigate();
+  const [inputData, setInputData] = useState({
+    name: "",
+    topic: "",
+    content: "",
+  });
 
-    const getInputChanges = (event) => {
-        const {name, value} = event.target
-        setInputData(prevState => ({
-            ...prevState,
-            [name]: value
-        }))
+  const getInputChanges = (event) => {
+    const { name, value } = event.target;
+    setInputData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
-    };
-
-    console.log(inputData)
+  console.log(inputData);
 
   return (
     <form className="max-w-sm mt-10 mx-auto">
-        <button onClick={()=>{navigation("/posts")}} style={{
-            marginBottom: "20px",
-            cursor: "pointer"
-        }}><img src={backBtn} alt="img not found"/></button>
+      <button
+        onClick={() => {
+          navigation("/posts");
+        }}
+        style={{
+          marginBottom: "20px",
+          cursor: "pointer",
+        }}
+      >
+        <img src={backBtn} alt="img not found" />
+      </button>
       <div className="mb-5">
         <label
           htmlFor="name"
@@ -42,7 +48,7 @@ const navigation = useNavigate()
           onChange={getInputChanges}
         />
       </div>
-        <div className="mb-5">
+      <div className="mb-5">
         <label
           htmlFor="topic"
           className="block mb-2 text-sm font-medium text-gray-900"
@@ -59,19 +65,19 @@ const navigation = useNavigate()
         />
       </div>
 
-        <div className="mb-5">
-            <label
-                htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-                Image
-            </label>
-            <input
-                type="file"
-                id="text"
-                className="bg-gray-50 border border-gray-300 cursor-pointer text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            />
-        </div>
+      <div className="mb-5">
+        <label
+          htmlFor="password"
+          className="block mb-2 text-sm font-medium text-gray-900 "
+        >
+          Image
+        </label>
+        <input
+          type="file"
+          id="text"
+          className="bg-gray-50 border border-gray-300 cursor-pointer text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        />
+      </div>
 
       <div className="mb-5">
         <label
