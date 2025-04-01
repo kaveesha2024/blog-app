@@ -7,7 +7,7 @@ const NavBar = () => {
             <header>
                 <h2 className="logo">Blog</h2>
                 <nav className="navigation">
-                    <Link to="/posts">Posts</Link>
+                    <Link to="/your-posts">Your Posts</Link>
                     <Link to="/login">Log In</Link>
                     <Link to="/sign-in">Sign In</Link>
                     <button onClick={() => {navigation("/create-postControllers")}} className="createPostBtn">Add Post</button>
