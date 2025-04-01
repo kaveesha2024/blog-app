@@ -20,8 +20,7 @@ const createUser = async (req, res) => {
     })
     .catch(err => {
       res.status(400).json({
-          email: err.errorResponse.keyValue.email,
-          message: "email already exists",
+        message: "email already exists",
       });
     });
 };

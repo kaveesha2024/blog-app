@@ -16,6 +16,9 @@ const Post = () => {
     };
     fetchData().then(() => {}).catch(error => console.log(error));
   }, []);
+
+
+
   return (
     <div>
       {data.length > 0 ?
