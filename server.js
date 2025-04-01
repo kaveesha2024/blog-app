@@ -1,17 +1,24 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { getPosts } from "./controllers/postController.js";
-const port = 5000;
+import router from "./apiRoutes/postRoutes/postRoutes.js";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+dotenv.config();
+const port = process.env.PORT || 5000;
+const host = process.env.HOST || "127.0.0.1";
 const app = express();
+const uri = process.env.DB_URI;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/getPosts", (req, res) => {
-  res.json(getPosts());
-});
+mongoose.connect(uri).then(() => {
+  console.log("Connected to DB");
+}).catch((err) => {
+  console.log(err)});
+app.use('/api', router);
 
 app.listen(port, () => {
-  console.log("server is listening port", port);
+  console.log(`server started at http://${host}:${port}`);
 });

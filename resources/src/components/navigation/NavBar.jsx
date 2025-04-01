@@ -8,10 +8,9 @@ const NavBar = () => {
                 <h2 className="logo">Blog</h2>
                 <nav className="navigation">
                     <Link to="/posts">Posts</Link>
-                    <Link to="">About</Link>
-                    <Link to="">Services</Link>
-                    <Link to="">Contacts</Link>
-                    <button onClick={() => {navigation("/create-post")}} className="createPostBtn">Add Post</button>
+                    <Link to="/login">Log In</Link>
+                    <Link to="/sign-in">Sign In</Link>
+                    <button onClick={() => {navigation("/create-postControllers")}} className="createPostBtn">Add Post</button>
                 </nav>
             </header>
         </div>

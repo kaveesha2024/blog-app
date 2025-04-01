@@ -1,26 +1,26 @@
-import testImage from "../../../public/services3.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Post = () => {
-  const authName = "Kaveesha";
   const [data, setData] = useState("");
   useEffect(() => {
+    const port = import.meta.env.VITE_API_PORT || 5000;
+    const host = import.meta.env.VITE_API_IP || "localhost";
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/getPosts");
+        const response = await axios.get(`http://${host}:${port}/api/posts`);
         setData(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchData();
+    fetchData().then(() => {}).catch(error => console.log(error));
   }, []);
   return (
     <div>
-      {data.length > 0 &&
+      {data.length > 0 ?
         data.map((data) => (
-          <div key={data.id}>
+          <div key={data._id}>
             <div className="postContainer">
               <div>
                 <p
@@ -29,7 +29,7 @@ const Post = () => {
                     fontSize: "30px",
                   }}
                 >
-                  {data.header}
+                  {data.title}
                 </p>
               </div>
               <p
@@ -39,7 +39,7 @@ const Post = () => {
                   marginBottom: "2%",
                 }}
               >
-                Date: 2025/03/25
+                Date : {new Date(data.date).toISOString().split("T")[0]}
               </p>
               <div>
                 <img
@@ -47,7 +47,7 @@ const Post = () => {
                     width: "600px",
                     marginBottom: "2%",
                   }}
-                  src={testImage}
+                  src={data.picture}
                   alt="Image Not Found"
                 />
               </div>
@@ -58,7 +58,7 @@ const Post = () => {
                   marginBottom: "2%",
                 }}
               >
-                {data.paragraph}
+                {data.content}
               </p>
               <p
                 style={{
@@ -73,7 +73,7 @@ const Post = () => {
               <div className="underLine"></div>
             </div>
           </div>
-        ))}
+        )) : <div>No Data</div> }
     </div>
   );
 };
