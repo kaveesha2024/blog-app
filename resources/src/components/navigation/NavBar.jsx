@@ -1,4 +1,5 @@
 import {Link, useNavigate} from "react-router";
+import User from "../dropDown/signedUser/User.jsx";
 
 const NavBar = () => {
     const navigation = useNavigate()
@@ -6,6 +7,7 @@ const NavBar = () => {
         <div>
             <header>
                 <h2 className="logo">Blog</h2>
+                    <User />
                 <nav className="navigation">
                     <Link to="/your-posts">Your Posts</Link>
                     <Link to="/login">Log In</Link>
