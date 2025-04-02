@@ -24,6 +24,7 @@ const LogIn = () => {
             localStorage.setItem('token', res.data.token);
             alert("you are logged in");
               navigate('/posts');
+              window.location.reload();
           });
       } catch (error) {
         alert(error.response.data.message);
