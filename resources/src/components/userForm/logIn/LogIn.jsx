@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 
 const LogIn = () => {
   const host = import.meta.env.VITE_API_IP;
@@ -21,16 +21,16 @@ const LogIn = () => {
         await axios
           .post(`http://${host}:${port}/api/users/login`, loginInput)
           .then((res) => {
-            localStorage.setItem('token', res.data.token);
+            localStorage.setItem("token", res.data.token);
             alert("you are logged in");
-              navigate('/posts');
-              window.location.reload();
+            navigate("/posts");
+            window.location.reload();
           });
       } catch (error) {
         alert(error.response.data.message);
         setLoginInput({
-            email: "",
-            password: "",
+          email: "",
+          password: "",
         });
       }
     } else {

@@ -1,11 +1,11 @@
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 
 const User = ({ user }) => {
-    const navigate = useNavigate();
-    const removeToken = () => {
-        localStorage.clear();
-        navigate("/");
-    };
+  const navigate = useNavigate();
+  const removeToken = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
   return (
     <div>
