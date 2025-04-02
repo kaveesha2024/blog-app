@@ -30,8 +30,8 @@ const loginUser = async (req, res) => {
                 });
             }
         } else {
-            res.json({
-                message: "Email is correct",
+            res.status(401).json({
+                message: 'This email is not registered',
             })
         }
     } ).catch(() => {res.json({

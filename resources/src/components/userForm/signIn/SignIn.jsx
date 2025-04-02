@@ -89,7 +89,7 @@ const SignIn = () => {
     <form
       className="max-w-sm mt-10 p-10 rounded-2xl mx-auto"
       onSubmit={createUser}
-    >
+    ><h1 className="text-2xl font-bold mb-5 text-blue-700 underline text-center " > Create your blog account </h1>
       <div className="mb-5">
         <label
           htmlFor="firstName"
