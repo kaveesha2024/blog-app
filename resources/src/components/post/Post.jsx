@@ -14,14 +14,14 @@ const Post = () => {
         console.log(error);
       }
     };
-    fetchData().then(() => {}).catch(error => console.log(error));
+    fetchData()
+      .then(() => {})
+      .catch((error) => console.log(error));
   }, []);
-
-
 
   return (
     <div>
-      {data.length > 0 ?
+      {data.length > 0 ? (
         data.map((data) => (
           <div key={data._id}>
             <div className="postContainer">
@@ -76,7 +76,10 @@ const Post = () => {
               <div className="underLine"></div>
             </div>
           </div>
-        )) : <div>No Data</div> }
+        ))
+      ) : (
+        <div>No Data</div>
+      )}
     </div>
   );
 };
