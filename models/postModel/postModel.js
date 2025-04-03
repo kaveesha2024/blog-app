@@ -6,12 +6,16 @@ const postSchema = mongoose.Schema({
         required: true,
     },
     content: String,
-    author: {
+    firstName: {
         type: String,
         required: true,
     },
     date: {type: Date, default: Date.now, required: true},
     picture: String,
+    email: {
+        type: String,
+        required: true,
+    },
 });
 const PostModel = mongoose.model("Blog-Posts", postSchema);
 export default PostModel;

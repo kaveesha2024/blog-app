@@ -47,7 +47,7 @@ const NavBar = () => {
           )}
           <button
             onClick={() => {
-              navigation("/create-postControllers");
+              navigation("/create-post");
             }}
             className="createPostBtn"
           >

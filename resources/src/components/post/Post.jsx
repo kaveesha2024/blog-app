@@ -11,12 +11,10 @@ const Post = () => {
         const response = await axios.get(`http://${host}:${port}/api/posts`);
         setData(response.data);
       } catch (error) {
-        console.log(error);
+        alert(`something went wrong: ${error}`);
       }
     };
-    fetchData()
-      .then(() => {})
-      .catch((error) => console.log(error));
+    fetchData();
   }, []);
 
   return (
@@ -42,7 +40,7 @@ const Post = () => {
                   marginBottom: "2%",
                 }}
               >
-                Date : {new Date(data.date).toISOString().split("T")[0]}
+                Uploaded On : {new Date(data.date).toISOString().split("T")[0]}
               </p>
               <div>
                 <img
@@ -70,7 +68,7 @@ const Post = () => {
                   fontSize: "15px",
                 }}
               >
-                Written By {data.author}
+                Written By {data.firstName}
               </p>
 
               <div className="underLine"></div>

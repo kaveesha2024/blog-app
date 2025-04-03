@@ -1,19 +1,23 @@
 import PostModel from "../../models/postModel/postModel.js";
 const createPostController = (req, res) => {
-    const { title, author, content, picture } = req.body;
+    const {firstName, email} = req.user;
+    const {title, content, picture} = req.body;
     const post = new PostModel({
+        firstName,
+        email,
         title,
-        author,
         content,
         picture,
     });
-    post
-        .save()
-        .then(data => {
-            res.status(201).json(data)
-        })
-        .catch(err => {
-        res.json(err);
-    })
+    const fetchData = async () => {
+        try {
+            const response = await post.save();
+            res.status(201).json(response);
+        }
+        catch (error) {
+            res.status(401).json(error);
+        }
+    }
+    fetchData();
 };
 export default createPostController;
