@@ -7,6 +7,7 @@ import Home from "./components/Home.jsx";
 import SignIn from "./components/userForm/signIn/SignIn.jsx";
 import LogIn from "./components/userForm/logIn/LogIn.jsx";
 import CreatePost from "./components/createPost/CreatePost.jsx";
+import ProtectedUserRoutes from "./protectedRoutes/ProtectedUserRoutes.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,9 +15,12 @@ createRoot(document.getElementById('root')).render(
         <Routes>
             <Route path="/" element={<App />} />
             <Route path="/posts" element={<Home />} />
-            <Route path="/create-post" element={<CreatePost />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/login" element={<LogIn />} />
+            {/*Protected Routes*/}
+            <Route element={<ProtectedUserRoutes />}>
+                <Route path="/create-post" element={<CreatePost/>} />
+            </Route>
         </Routes>
     </BrowserRouter>
   </StrictMode>,

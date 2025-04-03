@@ -1,25 +1,23 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router";
 const CreatePost = () => {
   const host = import.meta.env.VITE_API_IP;
   const port = import.meta.env.VITE_API_PORT;
-
+  const navigate = useNavigate();
   const [creatPostInput, setCreatPostInput] = useState({
     title: "",
     content: "",
     image: "",
   });
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     const { name, value } = event.target;
-    const token = localStorage.getItem("token");
-    setCreatPostInput((prevState) => ({
+    setCreatPostInput(prevState => ({
       ...prevState,
       [name]: value,
     }));
   };
-  console.log(creatPostInput);
-  const uploadPost = async (event) => {
+  const uploadPost = async event => {
     event.preventDefault();
     if (
       creatPostInput.title !== null &&
@@ -28,11 +26,20 @@ const CreatePost = () => {
       localStorage.getItem("token") != null
     ) {
       try {
-        const upload = await axios.post(`http://127.0.0.1:5000/api/create-post`,creatPostInput, {headers: {Authorization: localStorage.getItem("token")}});
-        console.log(upload);
-        }
-      catch (error) {
-        console.log(error.response.data.message);
+        const upload = await axios.post(
+          `http://${host}:${port}/api/create-post`,
+          creatPostInput,
+          { headers: { Authorization: localStorage.getItem("token") } },
+        );
+        navigate("/posts");
+        setCreatPostInput({
+          title: "",
+          content: "",
+          image: "",
+        });
+        alert(`"${upload.data.title}" Blog Uploaded successfully!`);
+      } catch (error) {
+        alert(error.response.data.message);
       }
     } else {
       alert("fill all the inputs.");
