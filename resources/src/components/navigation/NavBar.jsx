@@ -51,7 +51,7 @@ const NavBar = () => {
             }}
             className="createPostBtn"
           >
-            Add Post
+            Create Post
           </button>
         </nav>
       </header>
