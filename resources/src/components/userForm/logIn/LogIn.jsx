@@ -22,7 +22,6 @@ const LogIn = () => {
           .post(`http://${host}:${port}/api/users/login`, loginInput)
           .then((res) => {
             localStorage.setItem("token", res.data.token);
-            alert("you are logged in");
             navigate("/posts");
             window.location.reload();
           });
