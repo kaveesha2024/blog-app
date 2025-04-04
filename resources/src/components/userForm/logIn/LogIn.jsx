@@ -23,14 +23,9 @@ const LogIn = () => {
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             navigate("/posts");
-            window.location.reload();
           });
       } catch (error) {
         alert(error.response.data.message);
-        setLoginInput({
-          email: "",
-          password: "",
-        });
       }
     } else {
       alert(`Enter your email and password`);
@@ -56,6 +51,7 @@ const LogIn = () => {
           type="email"
           id="email"
           name="email"
+          value={loginInput.email}
           onChange={handleInputChange}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
           placeholder="test@example.com"
@@ -73,6 +69,7 @@ const LogIn = () => {
           type="password"
           id="password"
           name="password"
+          value={loginInput.password}
           onChange={handleInputChange}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
           placeholder="~"
