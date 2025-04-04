@@ -38,21 +38,21 @@ const NavBar = () => {
         <h2 className="logo">Blog</h2>
         <User user={user} />
         <nav className="navigation">
-          <Link to="/your-posts">Your Posts</Link>
+          { localStorage.getItem("email") != null ? <Link to="/your-posts">Your Posts</Link> : null }
           {localStorage.getItem("email") != null ? null : (
             <Link to="/login">Log In</Link>
           )}
           {localStorage.getItem("email") != null ? null : (
             <Link to="/sign-in">Sign In</Link>
           )}
-          <button
-            onClick={() => {
-              navigation("/create-post");
-            }}
-            className="createPostBtn"
+          { localStorage.getItem("email") != null ? <button
+              onClick={() => {
+                navigation("/create-post");
+              }}
+              className="createPostBtn"
           >
             Create Post
-          </button>
+          </button> : null }
         </nav>
       </header>
     </div>

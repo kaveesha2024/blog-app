@@ -8,6 +8,7 @@ import SignIn from "./components/userForm/signIn/SignIn.jsx";
 import LogIn from "./components/userForm/logIn/LogIn.jsx";
 import CreatePost from "./components/createPost/CreatePost.jsx";
 import ProtectedUserRoutes from "./protectedRoutes/ProtectedUserRoutes.jsx";
+import YourPosts from "./components/yourPosts/YourPosts.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/posts" element={<Home />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/your-posts" element={<YourPosts />} />
             {/*Protected Routes*/}
             <Route element={<ProtectedUserRoutes />}>
                 <Route path="/create-post" element={<CreatePost/>} />
