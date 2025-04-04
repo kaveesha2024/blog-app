@@ -8,6 +8,7 @@ const deletePost = async (req, res) => {
     })
   }else {
     try{
+      console.log(id)
       const response = await PostModel.deleteOne({ _id: id });
       res.status(200).json(response);
     }catch(err){

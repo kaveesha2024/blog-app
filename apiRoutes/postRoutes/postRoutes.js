@@ -10,6 +10,6 @@ router.post("/create-post", createPostController);
 router.get("/posts", getAllPostsController);
 router.get("/your-posts", yourPostsController);
 router.get("/users-posts", getUsersPosts);
-router.delete("/delete-posts", deletePost);
+router.post("/delete-posts", deletePost);
 
 export default router;
