@@ -16,6 +16,6 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-});
+}, { timestamps: true });
 const PostModel = mongoose.model("Blog-Posts", postSchema);
 export default PostModel;
