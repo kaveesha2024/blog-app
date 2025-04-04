@@ -87,7 +87,7 @@ const YourPosts = () => {
                                     {post.title}
                                 </th>
                                 <td className="px-6 py-4">
-                                    {post.createdAt}
+                                    {new Date(post.createdAt).toUTCString().split("T")[0]}
                                 </td>
                                 <td className="px-6 py-4">
                                     <button onClick={() => {
